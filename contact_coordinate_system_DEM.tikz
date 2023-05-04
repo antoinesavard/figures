@@ -1,0 +1,7 @@
+\begin{tikzpicture}
+	\draw (0,0) circle(1) node[below] {\tiny$i$};
+	\draw (2,1) circle(0.7) node[below] {\tiny$j$};
+	\draw (0,0)--(2,1);
+	\draw[->,>=stealth, thick] (0.894,0.447)--(0.894+2/5^0.5,0.447+1/5^0.5) node[above] {\tiny$\hat{\bm n}_{ij}$};
+	\draw[->,>=stealth, thick] (0.894,0.447)--(0.894-1/5^0.5,0.447+2/5^0.5) node[above] {\tiny$\hat{\bm t}_{ij}$};
+\end{tikzpicture}
