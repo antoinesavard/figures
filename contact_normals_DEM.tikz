@@ -1,60 +1,60 @@
 \begin{tikzpicture}
-                        \draw (-11.5,4) node {\textbf{A}};
-                        \draw (-1.5,4) node {\textbf{B}};
-                        
-                        \def \b {-10};
-                        \def \c {0.4};
-                        \def \d {0.1};
-                        \def \r {2.3};
-                        
-                        %circles
-                        
-                        \foreach \x in {0, 1, ..., 5}
-                            \foreach \y in {0, 1, ..., 3}
-                                \draw (\x + \b, \y) circle (0.5);
-                                
-                        \foreach \x in {0, 1, ..., 2}
-                            \foreach \y in {0, 1, ..., 3}        
-                                \draw (\x, \y) circle (0.5);
-                                
-                        \foreach \x in {3, 4, ..., 5}
-                            \foreach \y in {0, 1, ..., 3}        
-                                \draw (\x - \d, \y - \c) circle (0.5);
-                        
-                        % connections
-                        
-                        \foreach \y in {0, 1, ..., 3}   
-                            \draw (2 + \b,\y) -- (3 + \b,\y);
-                        
-                        \foreach \y in {0, 1, ..., 3}  
-                            \draw (2,\y) -- (3 - \d,\y - \c);
-                        
-                        % over/under lines
-                        
-                        \draw [line width = 1.5pt, >={Straight Barb[left]}, <-] (-0.5 + \b,-1) -- (5.5 + \b,-1);
-                        \draw [line width = 1.5pt, >={Straight Barb[left]}, ->] (-0.5 + \b,4) -- (5.5 + \b,4);
-                        
-                        \draw [line width = 1.5pt, >={Straight Barb[left]}, <-] (-0.5,-1) -- (5.5,-1);
-                        \draw [line width = 1.5pt, >={Straight Barb[left]}, ->] (-0.5,4) -- (5.5,4);
-                        
-                        % arrows
-                        
-                        \draw [line width = 1.5pt, >=stealth, ->] (2.5 + \b,5) -- (2.5 + \b,4);
-                        \draw [line width = 1.5pt, >=stealth, ->] (2.5 + \b,-2) -- (2.5 + \b,-1);
-                        
-                        \draw [line width = 1.5pt, >=stealth, ->] (2.5,5) -- (2.5,4);
-                        \draw [line width = 1.5pt, >=stealth, ->] (2.5,-2) -- (2.5,-1);
-                        
-                        % separation line
-                        
-                        \draw [line width = 1pt] (-2.5,5) -- (-2.5,-2);
-                        
-                        % angle
-                        
-                        \draw [line width = 1pt, dashed] (3 - \d, 3 - \c) -- (3 - \d, -1);
-                        \draw [line width = 1pt, dashed] (3 - \d, 3 - \c) -- ({3 - \d - (4*\c-\c*\c)/(1-\d)}, -1);
-                        \draw [line width = 1.5pt] (3 - \d,3 - \c - \r) arc (270:246:\r);
-                        \draw (\r - \d,0.15) node {$\delta$};
-                        
-                        
-                    \end{tikzpicture}
+    \draw (-11.5,4) node {\textbf{A}};
+    \draw (-1.5,4) node {\textbf{B}};
+
+    \def \b {-10};
+    \def \c {0.4};
+    \def \d {0.1};
+    \def \r {2.3};
+
+    %circles
+
+    \foreach \x in {0, 1, ..., 5}
+        \foreach \y in {0, 1, ..., 3}
+            \draw (\x + \b, \y) circle (0.5);
+
+    \foreach \x in {0, 1, ..., 2}
+        \foreach \y in {0, 1, ..., 3}        
+            \draw (\x, \y) circle (0.5);
+
+    \foreach \x in {3, 4, ..., 5}
+        \foreach \y in {0, 1, ..., 3}        
+            \draw (\x - \d, \y - \c) circle (0.5);
+
+    % connections
+
+    \foreach \y in {0, 1, ..., 3}   
+        \draw (2 + \b,\y) -- (3 + \b,\y);
+
+    \foreach \y in {0, 1, ..., 3}  
+        \draw (2,\y) -- (3 - \d,\y - \c);
+
+    % over/under lines
+
+    \draw [line width = 1.5pt, >={Straight Barb[left]}, <-] (-0.5 + \b,-1) -- (5.5 + \b,-1);
+    \draw [line width = 1.5pt, >={Straight Barb[left]}, ->] (-0.5 + \b,4) -- (5.5 + \b,4);
+
+    \draw [line width = 1.5pt, >={Straight Barb[left]}, <-] (-0.5,-1) -- (5.5,-1);
+    \draw [line width = 1.5pt, >={Straight Barb[left]}, ->] (-0.5,4) -- (5.5,4);
+
+    % arrows
+
+    \draw [line width = 1.5pt, >=stealth, ->] (2.5 + \b,5) -- (2.5 + \b,4);
+    \draw [line width = 1.5pt, >=stealth, ->] (2.5 + \b,-2) -- (2.5 + \b,-1);
+
+    \draw [line width = 1.5pt, >=stealth, ->] (2.5,5) -- (2.5,4);
+    \draw [line width = 1.5pt, >=stealth, ->] (2.5,-2) -- (2.5,-1);
+
+    % separation line
+
+    \draw [line width = 1pt] (-2.5,5) -- (-2.5,-2);
+
+    % angle
+
+    \draw [line width = 1pt, dashed] (3 - \d, 3 - \c) -- (3 - \d, -1);
+    \draw [line width = 1pt, dashed] (3 - \d, 3 - \c) -- ({3 - \d - (4*\c-\c*\c)/(1-\d)}, -1);
+    \draw [line width = 1.5pt] (3 - \d,3 - \c - \r) arc (270:246:\r);
+    \draw (\r - \d,0.15) node {$\delta$};
+
+
+\end{tikzpicture}
