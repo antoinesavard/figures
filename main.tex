@@ -1,0 +1,54 @@
+\documentclass{minimal}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage{svg}
+\usepackage{IEEEtrantools}
+\usepackage{physics,dsfont,mathrsfs,cancel,tensor,slashed,mathtools}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{eulerpx}
+\usepackage{bm}
+\usepackage{setspace}
+\usepackage{subcaption}
+\usepackage{mwe}
+
+\usepackage{tikz}
+\usetikzlibrary{calc,patterns,decorations.pathmorphing,decorations.markings}
+\usetikzlibrary{arrows.meta}
+\usepackage{tikzscale}
+
+% ----------------------------
+% need this for yield curve
+% Définition des nouvelles options xmin, xmax, ymin, ymax
+% Valeurs par défaut : -3, 3, -3, 3
+\tikzset{
+xmin/.store in=\xmin, xmin/.default=-3, xmin=-3,
+xmax/.store in=\xmax, xmax/.default=3, xmax=3,
+ymin/.store in=\ymin, ymin/.default=-3, ymin=-3,
+ymax/.store in=\ymax, ymax/.default=3, ymax=3,
+}
+% Commande qui trace la grille entre (xmin,ymin) et (xmax,ymax)
+\newcommand {\grille}
+{\draw[help lines] (\xmin,\ymin) grid (\xmax,\ymax);}
+% Commande \axes
+\newcommand {\axes} {
+\draw [>=stealth,->] (\xmin,0) -- (\xmax,0);
+\draw [>=stealth,->] (0,\ymin) -- (0,\ymax);
+}
+% Commande qui limite l’affichage à (xmin,ymin) et (xmax,ymax)
+\newcommand {\fenetre}
+{\clip (\xmin,\ymin) rectangle (\xmax,\ymax);}
+% ----------------------------
+
+\begin{document}
+\input{contact_coordinate_system_DEM.tikz}
+
+\input{contact_normals_DEM.tikz}
+
+\input{viscous-plastic_yield_curve.tikz}
+\end{document}
