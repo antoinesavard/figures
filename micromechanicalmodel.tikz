@@ -1,0 +1,112 @@
+\begin{tikzpicture}
+    \tikzstyle{spring}=[thick,decorate,decoration={zigzag,pre length=0.3cm,post length=0.3cm,segment length=6}]
+    \tikzstyle{damper}=[thick,decoration={markings,  
+      mark connection node=dmp,
+      mark=at position 0.5 with 
+      {
+        \node (dmp) [thick,inner sep=0pt,transform shape,rotate=-90,minimum width=15pt,minimum height=10pt,draw=none] {};
+        \filldraw [black!10,thick] ($(dmp.north east)+(2pt,0)$) -- (dmp.south east) -- (dmp.south west) -- ($(dmp.north west)+(2pt,0)$);
+        \draw [thick] ($(dmp.north east)+(2pt,0)$) -- (dmp.south east) -- (dmp.south west) -- ($(dmp.north west)+(2pt,0)$);
+        \draw [thick] ($(dmp.north)+(0,-5pt)$) -- ($(dmp.north)+(0,5pt)$);
+      }
+    }, decorate]
+    \tikzstyle{ground}=[fill,pattern=north east lines,draw=none,minimum width=0.75cm,minimum height=0.3cm]
+
+    %\draw [help lines] (-5,-3) grid (5,3);
+
+    \begin{scope}[xshift=-7cm]
+        \draw (-4,0) circle(1) node {\tiny$i$};
+        \draw (-2.2,0) circle(0.8) node[below] {\tiny$j$};
+        \draw (-3,-2) -- (-3, 2);
+        \draw [thick, ->,>=stealth] (-3,0) -- (-3, 1) node[left] {\tiny$\hat t_{ij}$};
+        \draw [thick, ->,>=stealth] (-3,0) -- (-2, 0) node[above] {\tiny$\hat n_{ij}$};
+
+        \draw [thick, ->,>=latex] (-1.2,1.1) -- (1.5, 3);
+        \draw [thick, ->,>=latex] (-1.2,0) -- (1.5, 0);
+        \draw [thick, ->,>=latex] (-1.2,-1.1) -- (1.5, -3);
+    \end{scope}
+
+    \begin{scope}[xshift=0.5cm, yshift=0.8cm]
+        \draw (0,3) node[text width=4cm,align=left] {\small Normal contact model};
+        \draw (0,0) node[text width=4cm,align=left] {\small Tangential contact model};
+        \draw (0,-3) node[text width=4cm,align=left] {\small Rolling contact model};
+
+        \draw (0.4,2.5) node[text width=4cm,align=left] {\footnotesize $\bullet$ Spring};
+        \draw (0.4,2) node[text width=4cm,align=left] {\footnotesize $\bullet$ Dashpot};
+        \draw (0.4,1.5) node[text width=4cm,align=left] {\footnotesize $\bullet$ Divider};
+
+        \draw (0.4,-0.5) node[text width=4cm,align=left] {\footnotesize $\bullet$ Spring};
+        \draw (0.4,-1) node[text width=4cm,align=left] {\footnotesize $\bullet$ Dashpot};
+        \draw (0.4,-1.5) node[text width=4cm,align=left] {\footnotesize $\bullet$ Slider};
+
+        \draw (0.4,-3.5) node[text width=4cm,align=left] {\footnotesize $\bullet$ Spring};
+        \draw (0.4,-4) node[text width=4cm,align=left] {\footnotesize $\bullet$ Dashpot};
+        \draw (0.4,-4.5) node[text width=4cm,align=left] {\footnotesize $\bullet$ Roller};
+    \end{scope}
+
+    \begin{scope}[xshift=-2cm,yshift=3cm]
+        \node (wall) [ground, rotate=-90, minimum width=2cm,yshift=-3cm] {};
+        \draw (wall.north east) -- (wall.north west);
+        
+        \node (wall1) [ground, rotate=90, minimum width=2cm,yshift=0cm] {};
+        \draw (wall1.north east) -- (wall1.north west);
+
+        \draw [thick] (wall.90) -- (-2.5,0) -- (-2.5, 0.5);
+        \draw [spring] (-2.5, 0.5) -- (-1,0.5);
+        \draw [thick] (-1,0.5) -- (-1,0) -| (-0.6,0.25);
+        \draw [thick] (-0.5,0.25) |- (wall1.90);
+
+        \draw [thick] (wall.90) -- (-2.5,0) -- (-2.5, -0.5);
+        \draw [damper] (-2.5, -0.5) -- (-1,-0.5);
+        \draw [thick] (-1,-0.5) -- (-1,0) -| (-0.6,-0.25);
+        \draw [thick] (-0.5,-0.25) |- (wall1.90);
+    \end{scope}
+    
+    \begin{scope}[xshift=-3.5cm, yshift=1.7cm]
+        \node (wall) [ground, rotate=-90, minimum width=0.5cm,xshift=3cm, yshift=-0.25cm] {};
+        \draw (wall.north east) -- (wall.north west);
+        
+        \node (wall1) [ground, rotate=90, minimum width=0.5cm,xshift=-0.5cm,yshift=-0.25cm] {};
+        \draw (wall1.north east) -- (wall1.north west);
+
+        \node (wall2) [ground, rotate=90, minimum width=0.5cm,yshift=-0.25cm, xshift=-3cm] {};
+        \draw (wall2.north east) -- (wall2.north west);
+
+        \node (wall3) [ground, rotate=-90, minimum width=0.5cm,xshift=0.5cm,yshift=-0.25cm] {};
+        \draw (wall3.north east) -- (wall3.north west);
+
+        \draw [thick, rotate=90] (wall.90) |- (-2.5,0.04) -- (-2.5, 0.5);
+        \draw [spring, rotate=90] (-2.5, 0.5) -- (-1,0.5);
+        \draw [thick, rotate=90] (-1,0.5) -- (-1,-0.04);
+        \draw [thick, rotate=90] (-0.9,0.04) -| (wall3.90);
+
+        \draw [thick, rotate=90] (wall2.90) |- (-2.6,-0.04);
+        \draw [thick, rotate=90] (-2.5, 0.04) -- (-2.5,-0.5);
+        \draw [damper, rotate=90] (-2.5, -0.5) -- (-1,-0.5);
+        \draw [thick, rotate=90] (-1,-0.5) -- (-1,-0.04) -| (wall1.90);
+    \end{scope}
+
+    \begin{scope}[xshift=-2cm, yshift=-3cm]
+        \node (wall) [ground, rotate=-90, minimum width=2cm,yshift=-3cm] {};
+        \draw (wall.north east) -- (wall.north west);
+        
+        \node (wall1) [ground, rotate=90, minimum width=2cm,yshift=0cm] {};
+        \draw (wall1.north east) -- (wall1.north west);
+        
+        \draw [thick] (wall.90) -- (-2.5,0) -- (-2.5, 0.5) -- (-1.71, 0.5);
+        \spiral[thick](-1.75, 0.5)(0:0)(0.03:0.3)[3];
+        \draw [thick] (-1.46,0.5) -- (-1,0.5) -- (-1,0);
+
+        \draw [thick] (wall.90) -- (-2.5,0) -- (-2.5, -0.5) -- (-2.05, -0.5);
+        \filldraw [black!10,thick] (-1.75+0.3/2,-0.5+0.3*0.866) arc(60:300:0.3);
+        \draw [thick] (-1.75+0.3/2,-0.5+0.3*0.866) arc(60:300:0.3);
+        \draw [thick] (-1.75,-0.28) -- (-1.75,-0.72);
+        \draw [thick] (-1.75+0.22*0.866,-0.5+0.22/2) -- (-1.75-0.22*0.866,-0.5-0.22/2);
+        \draw [thick] (-1.75+0.22*0.866,-0.5-0.22/2) -- (-1.75-0.22*0.866,-0.5+0.22/2);
+        
+        \draw [thick] (-1.75,-0.5) -- (-1,-0.5) -- (-1,0) -- (-0.82,0);
+        \draw [thick] (-0.6,0) circle(0.22) node {\tiny$\bullet$};
+        \draw [thick] (-0.9+0.3/2,0.3*0.866) arc(120:-120:0.3);
+        \draw [thick] (-0.3,0) -- (wall1.90);
+    \end{scope}
+\end{tikzpicture}

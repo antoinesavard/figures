@@ -11,7 +11,6 @@
 
 \usepackage{amsmath}
 \usepackage{amsfonts}
-\usepackage{eulerpx}
 \usepackage{bm}
 \usepackage{setspace}
 \usepackage{subcaption}
@@ -21,6 +20,20 @@
 \usetikzlibrary{calc,patterns,decorations.pathmorphing,decorations.markings}
 \usetikzlibrary{arrows.meta}
 \usepackage{tikzscale}
+
+% ----------------------------
+% need this for spiral spring
+\newcommand\spiral{} % just for safety
+\def\spiral[#1](#2)(#3:#4)(#5:#6)[#7]{% \spiral[draw options](placement)(start angle:end angle)(start radius:final radius)[revolutions]
+    \pgfmathsetmacro{\domain}{#4+#7*360}
+    \pgfmathsetmacro{\growth}{180*(#6-#5)/(pi*(\domain-#3))}
+    \draw [#1,
+           shift={(#2)},
+           domain=#3*pi/180:\domain*pi/180,
+           variable=\t,
+           smooth,
+           samples=int(\domain/5)] plot ({\t r}: {#5+\growth*\t-\growth*#3*pi/180})
+}
 
 % ----------------------------
 % need this for yield curve
@@ -53,4 +66,6 @@ ymax/.store in=\ymax, ymax/.default=3, ymax=3,
 \input{viscous-plastic_yield_curve.tikz}
 
 \input{bonds.tikz}
+
+\input{micromechanicalmodel.tikz}
 \end{document}
