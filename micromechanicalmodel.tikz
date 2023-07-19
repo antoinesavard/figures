@@ -18,8 +18,8 @@
         \draw (-4,0) circle(1) node {\tiny$i$};
         \draw (-2.2,0) circle(0.8) node[below] {\tiny$j$};
         \draw (-3,-2) -- (-3, 2);
-        \draw [thick, ->,>=stealth] (-3,0) -- (-3, 1) node[left] {\tiny$\hat t_{ij}$};
-        \draw [thick, ->,>=stealth] (-3,0) -- (-2, 0) node[above] {\tiny$\hat n_{ij}$};
+        \draw [thick, ->,>=stealth] (-3,0) -- (-3, 1) node[left] {$\hat t_{ij}$};
+        \draw [thick, ->,>=stealth] (-3,0) -- (-2, 0) node[above] {$\hat n_{ij}$};
 
         \draw [thick, ->,>=latex] (-1.2,1.1) -- (1.5, 3);
         \draw [thick, ->,>=latex] (-1.2,0) -- (1.5, 0);
