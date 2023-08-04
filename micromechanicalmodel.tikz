@@ -5,7 +5,7 @@
       mark=at position 0.5 with 
       {
         \node (dmp) [thick,inner sep=0pt,transform shape,rotate=-90,minimum width=15pt,minimum height=10pt,draw=none] {};
-        \filldraw [black!10,thick] ($(dmp.north east)+(2pt,0)$) -- (dmp.south east) -- (dmp.south west) -- ($(dmp.north west)+(2pt,0)$);
+        \filldraw [yellow!30,thick] ($(dmp.north east)+(2pt,0)$) -- (dmp.south east) -- (dmp.south west) -- ($(dmp.north west)+(2pt,0)$);
         \draw [thick] ($(dmp.north east)+(2pt,0)$) -- (dmp.south east) -- (dmp.south west) -- ($(dmp.north west)+(2pt,0)$);
         \draw [thick] ($(dmp.north)+(0,-5pt)$) -- ($(dmp.north)+(0,5pt)$);
       }
@@ -98,7 +98,7 @@
         \draw [thick] (-1.46,0.5) -- (-1,0.5) -- (-1,0);
 
         \draw [thick] (wall.90) -- (-2.5,0) -- (-2.5, -0.5) -- (-2.05, -0.5);
-        \filldraw [black!10,thick] (-1.75+0.3/2,-0.5+0.3*0.866) arc(60:300:0.3);
+        \filldraw [yellow!30,thick] (-1.75+0.3/2,-0.5+0.3*0.866) arc(60:300:0.3);
         \draw [thick] (-1.75+0.3/2,-0.5+0.3*0.866) arc(60:300:0.3);
         \draw [thick] (-1.75,-0.28) -- (-1.75,-0.72);
         \draw [thick] (-1.75+0.22*0.866,-0.5+0.22/2) -- (-1.75-0.22*0.866,-0.5-0.22/2);

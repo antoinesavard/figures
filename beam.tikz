@@ -1,0 +1,21 @@
+\begin{tikzpicture}
+    \tikzstyle{ground}=[fill,pattern=north east lines,draw=none,minimum width=0.75cm,minimum height=0.3cm]
+    \tikzstyle{spring}=[thick,decorate,decoration={zigzag,pre length=0.3cm,post length=0.3cm,segment length=6}]
+
+    \node (wall) [ground, rotate=-90, minimum width=2cm] {};
+    \draw (wall.north east) -- (wall.north west); 
+
+    \node (wall1) [ground, rotate=90, minimum width=2cm, yshift=-2.1875cm] {};
+    \draw (wall1.north east) -- (wall1.north west); 
+
+    \draw [thick] (wall.150) -| (1.5,0) |- (wall.30);
+    \draw [dotted] (wall1.150) -| (1.5,0) |- (wall1.30);
+
+    \begin{scope}[yshift=-3cm]
+        \node (wall) [ground, rotate=-90, minimum width=2cm] {};
+        \draw (wall.north east) -- (wall.north west); 
+
+        \draw [thick] (wall.130) -| (2.5,0) |- (wall.50);
+        \draw [dotted] (wall.130) to [bend left=10] (2.48,-0.35) -- (2.4, -0.6) to [bend right=10] (wall.50);
+    \end{scope}
+\end{tikzpicture}

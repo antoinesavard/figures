@@ -1,7 +1,7 @@
 \begin{tikzpicture}
     \begin{scope}
         \clip  (0,0) circle(1.5);
-        \filldraw[black!10]  (2.2,0) circle(1.2);
+        \filldraw[yellow!30]  (2.2,0) circle(1.2);
     \end{scope}
     \draw (0,0) circle(1.5) node {\small$\bm x_i$};
     \draw (2.2,0) circle(1.2) node {\small$\bm x_j$};
